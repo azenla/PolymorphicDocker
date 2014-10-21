@@ -3,7 +3,9 @@ FROM google/dart
 WORKDIR /app
 
 ADD . /app
-RUN git clone https://github.com/PolymorphicBot/PolymorphicBot.git PolymorphicBot
+RUN apt-get update
+RUN apt-get install -y git-core
+RUN git clone git://github.com/PolymorphicBot/PolymorphicBot.git PolymorphicBot
 RUN cd PolymorphicBot
 RUN pub get
 RUN cd ..
